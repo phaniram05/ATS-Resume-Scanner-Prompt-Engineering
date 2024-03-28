@@ -1,0 +1,9 @@
+streamlit
+google-generativeai
+python-dotenv
+pdf2image
+
+# Poppler has also been installed as a dependency for pdf2image
+
+# From the terminal, use the command
+# brew install poppler
