@@ -1,0 +1,13 @@
+prefix=/Users/beingrampopuri/Desktop/Cache Stuff/ATS Builder/venv
+exec_prefix=/Users/beingrampopuri/Desktop/Cache Stuff/ATS Builder/venv
+libdir=/Users/beingrampopuri/Desktop/Cache Stuff/ATS Builder/venv/lib
+sharedlibdir=/Users/beingrampopuri/Desktop/Cache Stuff/ATS Builder/venv/lib
+includedir=/Users/beingrampopuri/Desktop/Cache Stuff/ATS Builder/venv/include
+
+Name: zlib
+Description: zlib compression library
+Version: 1.2.13
+
+Requires:
+Libs: -L${libdir} -L${sharedlibdir} -lz
+Cflags: -I${includedir}

@@ -10,8 +10,8 @@ load_dotenv()
 
 import streamlit as st
 import os
-import base64
-import io
+import base64 # type: ignore
+import io # type: ignore
 from PIL import Image
 import pdf2image
 import google.generativeai as genai
@@ -52,6 +52,10 @@ def input_pdf_setup(uploaded_file):
 st.set_page_config(page_title="ATS Resume Scanner")
 st.header("Application Tracking System")
 
+targeted_roles = st.text_input("Targeted Roles (sep by comma): ", key="role")
+
+skill_set = st.text_input("Enter your skills separated by comma", key="skills")
+
 job_description = st.text_area("Job Description: ", key = "input")
 
 uploaded_file = st.file_uploader("Upload your Resume (PDF format)", type = ["pdf"])
@@ -64,11 +68,11 @@ action1 = st.button("Summary of the Resume")
 action2 = st.button("How can the resume be improved?")
 action3 = st.button("Percentage Match with the job description %")
 
-input_prompt1 = """
+input_prompt1 = f"""
                     You are an experienced HR with technical experience
-                    in the field of Data Science, Machine Learning, Big Data Engineering,
-                    Data Analysis. Your task is to review the provided resume against the
-                    job description for the profiles mentioned.  
+                    in the field of {targeted_roles}. The user is experienced in the following skills: {skill_set}.
+                    Your task is to review the provided resume against the
+                    job description for the roles mentioned.  
                     Please share your professional evaluation on whether the
                     candidate's profile aligns with the job description.
                     Highlight the strengths and weaknesses of the applicant in
@@ -77,18 +81,18 @@ input_prompt1 = """
                 """
 
 
-input_prompt2 = """
-                    You are a technical HR manager with expertise in Data Science, Machine Learning, and Data Engineering.
-                    Your role is to scrutinize the resume in light of the job description provided.
-                    Share your insights on the candidate's suitability for the role from a 
-                    HR perspective. Additionally, offer practical advice on enhancing the candidate's skills
+input_prompt2 = f"""
+                    You are a technical HR manager with expertise in {targeted_roles}. The user is experienced in the following skills: {skill_set}.
+                    Your role is to scrutinize the resume in light of the job description and skills provided.
+                    Share your insights on the candidate's suitability for the role from a HR perspective. Additionally, offer practical advice on enhancing the candidate's skills
                     and identify areas where the candidate can be improved.
                 """
 
-input_prompt3 = """
-                    You are an skilled ATS (Applicant Tracking System) scanner with a deep understanding of data science and ATS functionality, 
-                    your task is to evaluate the resume against the provided job description. give me the percentage of match if the resume matches
-                    the job description. First the output should come as percentage and then keywords missing and last final thoughts.
+input_prompt3 = f"""
+                    You are an skilled ATS (Applicant Tracking System) scanner with a deep understanding of {targeted_roles} and ATS functionality. 
+                    Your task is to evaluate the resume against the provided job description. Give me the percentage of match if the resume matches
+                    the job description for each of the {targeted_roles}. 
+                    First the output should come as percentage and then keywords missing in new line and last final thoughts at the bottom.
                 """
 
 
