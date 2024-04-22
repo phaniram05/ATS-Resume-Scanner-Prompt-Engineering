@@ -1,5 +1,5 @@
 build-essential
+poppler-utils
 libpoppler-cpp-dev
-poppler
 pkg-config
 python-dev
