@@ -3,7 +3,6 @@
 #3. PDF to Image --> Processing --> Google Gemini Pro
 #4. Multiple Prompts (templates)
 
-
 from dotenv import load_dotenv
 
 load_dotenv()
