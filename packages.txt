@@ -1,1 +1,1 @@
-poppler
+brew install poppler
