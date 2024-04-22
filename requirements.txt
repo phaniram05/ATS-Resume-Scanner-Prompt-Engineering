@@ -2,6 +2,7 @@ streamlit
 google-generativeai
 python-dotenv
 pkgconfig
+cmake
 python-poppler
 pdf2image
 
