@@ -4,7 +4,9 @@ python-dotenv
 pkgconfig
 cmake
 poppler-utils
-python-poppler
+# libpoppler-dev 
+# libpoppler-cpp-dev
+# python-poppler
 pdf2image
 
 
