@@ -1,7 +1,9 @@
 streamlit
 google-generativeai
 python-dotenv
+python-poppler
 pdf2image
+
 
 # Poppler has also been installed as a dependency for pdf2image
 
